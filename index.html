@@ -2,16 +2,42 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <title>Adventure Game</title>
+    <style>
+      .game-container {
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+      .location-info {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+      }
+      .location-description {
+        margin: 15px 0;
+        padding: 10px;
+        background-color: #e0e0e0;
+        border-left: 4px solid #666;
+      }
+      button {
+        margin: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <p>This is a test page.</p>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-    <br />
+    <div class="game-container">
+      <h1>Adventure Game</h1>
+      <div class="location-info">
+        <h2>Current Location: <span id="current-location">Forest</span></h2>
+        <div id="location-description" class="location-description"></div>
+        <p>Available moves:</p>
+        <div id="available-moves"></div>
+      </div>
+    </div>
+    <script type="module" src="game.js"></script>
   </body>
 </html>
