@@ -17,14 +17,14 @@ export const locations = {
             name: 'Dragon',
             description: 'A massive dragon circles the peak, its scales glinting in the sunlight.'
         },
-        picture: null
+        picture: `./assets/images/mountain.jpg`
     },
     swamp: {
         name: 'Swamp',
         connections: ['forest', 'underground'],
         description: 'Murky waters stretch as far as the eye can see. Strange bubbles occasionally break the surface of the stagnant pools. Twisted trees grow at odd angles from the boggy ground, their roots forming treacherous tangles beneath the water\'s surface.',
         monster: null,
-        picture: null
+        picture: `./assets/images/swamp.jpg`
     },
     underground: {
         name: 'Underground',
