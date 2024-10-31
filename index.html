@@ -1,42 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Adventure Game</title>
-    <style>
-      .game-container {
-        padding: 20px;
-        font-family: Arial, sans-serif;
-      }
-      .location-info {
-        margin: 20px 0;
-        padding: 15px;
-        background-color: #f0f0f0;
-        border-radius: 5px;
-      }
-      .location-description {
-        margin: 15px 0;
-        padding: 10px;
-        background-color: #e0e0e0;
-        border-left: 4px solid #666;
-      }
-      button {
-        margin: 5px;
-        padding: 10px;
-        cursor: pointer;
-      }
-    </style>
   </head>
   <body>
     <div class="game-container">
       <h1>Adventure Game</h1>
+      <div id="location-image">
+        <img id="location-picture" alt="Location view">
+    </div>
       <div class="location-info">
         <h2>Current Location: <span id="current-location">Forest</span></h2>
         <div id="location-description" class="location-description"></div>
-        <p>Available moves:</p>
-        <div id="available-moves"></div>
       </div>
+      <div id="monster-section">
+        <h3>Monsters</h3>
+        <p id="monster-description"></p>
+      </div>
+      <p>Available moves:</p>
+      <div id="available-moves"></div>
     </div>
     <script type="module" src="game.js"></script>
   </body>

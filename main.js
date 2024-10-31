@@ -5,9 +5,12 @@ const createWindow = () => {
     const win = new BrowserWindow({
       width: 800,
       height: 600,
+      resizable: false,
       webPreferences: {
         // using preload script before the page loads
-        preload: path.join(__dirname, 'preload.js')
+        preload: path.join(__dirname, 'preload.js'),
+        nodeIntegration: true,
+        contextIsolation: false
       }
     })
   

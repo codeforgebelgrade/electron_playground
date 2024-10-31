@@ -7,11 +7,23 @@ function updateLocation(newLocation) {
     document.getElementById('current-location').textContent = locations[currentLocation].name;
     document.getElementById('location-description').textContent = locations[currentLocation].description;
     
+    // Handle location picture
+    const locationPicture = document.getElementById('location-picture');
+    if (locations[currentLocation].picture) {
+        locationPicture.style.display = 'block';
+        locationPicture.src = locations[currentLocation].picture;
+    } else {
+        locationPicture.style.display = 'none';
+    }
+    
     // Add monster description if present
-    const locationDescription = document.getElementById('location-description');
-    locationDescription.textContent = locations[currentLocation].description;
+    // Handle monster information separately
+    const monsterDescription = document.getElementById('monster-description');
     if (locations[currentLocation].monster) {
-        locationDescription.textContent += ' ' + locations[currentLocation].monster.description;
+        document.getElementById('monster-section').style.display = 'block';
+        monsterDescription.textContent = locations[currentLocation].monster.description;
+    } else {
+        document.getElementById('monster-section').style.display = 'none';
     }
     
     const movesDiv = document.getElementById('available-moves');

@@ -6,7 +6,8 @@ export const locations = {
         monster: {
             name: 'Wolf',
             description: 'A fierce wolf prowls between the trees, its yellow eyes fixed on you.'
-        }
+        },
+        picture: `./assets/images/forest.jpg`
     },
     mountain: {
         name: 'Mountain',
@@ -15,18 +16,21 @@ export const locations = {
         monster: {
             name: 'Dragon',
             description: 'A massive dragon circles the peak, its scales glinting in the sunlight.'
-        }
+        },
+        picture: null
     },
     swamp: {
         name: 'Swamp',
         connections: ['forest', 'underground'],
         description: 'Murky waters stretch as far as the eye can see. Strange bubbles occasionally break the surface of the stagnant pools. Twisted trees grow at odd angles from the boggy ground, their roots forming treacherous tangles beneath the water\'s surface.',
-        monster: null
+        monster: null,
+        picture: null
     },
     underground: {
         name: 'Underground',
         connections: ['mountain', 'swamp'],
         description: 'The cave system extends into darkness. The air is cool and damp, with the sound of water dripping echoing from unseen chambers. Phosphorescent fungi provide an eerie, blue-green glow along the stone walls.',
-        monster: null
+        monster: null,
+        picture: null
     }
 };
