@@ -29,7 +29,7 @@ function updateLocation(newLocation) {
     const movesDiv = document.getElementById('available-moves');
     movesDiv.innerHTML = '';
     
-    // display connections betweeen locations
+    // display connections betweeen locations and buttons
     locations[currentLocation].connections.forEach(connection => {
         const button = document.createElement('button');
         button.textContent = `Go to ${locations[connection].name}`;
