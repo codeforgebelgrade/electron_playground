@@ -26,7 +26,6 @@ function updateLocation(newLocation) {
         document.getElementById('monster-section').style.display = 'none';
     }
     
-    // get available moves
     const movesDiv = document.getElementById('available-moves');
     movesDiv.innerHTML = '';
     
