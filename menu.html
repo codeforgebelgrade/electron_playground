@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Game Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .menu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .menu-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 20px;
+      }
+      .menu-image {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Adventure Game!</h1>
+    <div class="menu-container">
+      <!--img src="./assets/images/menu.jpg" alt="Game Menu" class="menu-image"-->
+      <div class="menu-buttons">
+        <button id="start-btn">Start Game</button>
+        <button id="exit-btn">Exit</button>
+      </div>
+    </div>
+    <script>
+      document.getElementById('start-btn').onclick = () => {
+        window.location.href = 'index.html';
+      };
+      document.getElementById('exit-btn').onclick = () => {
+        // If running in Electron, use Electron's API to close the window
+        if (window?.require) {
+          const { remote } = window.require('electron');
+          remote.getCurrentWindow().close();
+        } else {
+          // Fallback for browser: show a message or close the tab
+          window.close();
+        }
+      };
+    </script>
+  </body>
+</html>

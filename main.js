@@ -13,8 +13,8 @@ const createWindow = () => {
         contextIsolation: false
       }
     })
-  
-    win.loadFile('index.html')
+
+    win.loadFile('menu.html')
   }
 
   app.whenReady().then(() => {
