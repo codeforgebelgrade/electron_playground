@@ -38,7 +38,7 @@ export const locations = {
         connections: ['swamp', 'forest', "mountain"],
         description: 'A wide, crystal-clear river flows swiftly through the landscape. Smooth rocks line the riverbed, visible through the pristine waters. The gentle sound of rushing water creates a peaceful atmosphere, while colorful fish dart beneath the surface. Lush vegetation grows along the banks, swaying in the cool breeze.',
         monster: null,
-        picture: null
+        picture: `./assets/images/river.jpg`
     },
     ancientMonolith: {
         name: 'Ancient Monolith',
