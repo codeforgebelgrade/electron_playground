@@ -1,74 +1,28 @@
-name: AI Code Review (payment)
+name: AI Code Review
 
 on:
   pull_request:
     types: [opened, synchronize]
+  # Or use other triggers like push, workflow_dispatch, etc.
 
 jobs:
-  ai-review:
+  code-review:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0  # important for git diff
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install OpenAI SDK
-        run: npm install openai@4
-
-      - name: Generate PR diff
-        run: |
-          git diff origin/${{ github.base_ref }}...HEAD > pr.diff
-          echo "Diff generated:"
-          wc -l pr.diff
-
-      - name: Run AI code review
+          node-version: '18' # or your preferred version
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: AI code review
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          node <<'EOF'
-          import fs from 'fs';
-          import OpenAI from 'openai';
-
-          const diff = fs.readFileSync('pr.diff', 'utf8');
-
-          // Safety guard: avoid huge prompts
-          const MAX_CHARS = 12000;
-          const trimmedDiff = diff.slice(0, MAX_CHARS);
-
-          const client = new OpenAI({
-            apiKey: process.env.OPENAI_API_KEY,
-          });
-
-          const prompt = `
-          You are a senior software engineer performing a pull request review.
-
-          Review the following Git diff.
-          Focus on:
-          - correctness
-          - potential bugs
-          - security issues
-          - readability and maintainability
-
-          Be concise and actionable.
-
-          --- DIFF START ---
-          ${trimmedDiff}
-          --- DIFF END ---
-          `;
-
-          const response = await client.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages: [{ role: "user", content: prompt }],
-            max_tokens: 300,
-          });
-
-          console.log("\n=== AI CODE REVIEW ===\n");
-          console.log(response.choices[0].message.content);
-          EOF
+          node custom_scripts/ai-code-review.js
