@@ -41,8 +41,13 @@ ${trimmedDiff}
       max_tokens: 300,
     });
 
+    const reviewContent = response.choices[0].message.content;
+    
     console.log("\n=== AI CODE REVIEW ===\n");
-    console.log(response.choices[0].message.content);
+    console.log(reviewContent);
+    
+    // Save to file for GitHub Actions to post as comment
+    fs.writeFileSync('review-output.txt', reviewContent, 'utf8');
   } catch (err) {
     console.error(err);
     process.exit(1);
