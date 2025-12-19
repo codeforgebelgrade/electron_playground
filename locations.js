@@ -11,7 +11,7 @@ export const locations = {
     },
     mountain: {
         name: 'Mountain',
-        connections: ['forest', 'underground'],
+        connections: ['forest', 'underground', 'ancientMonolith'],
         description: 'The rocky mountain path winds before you. Sharp cliffs rise on one side while a steep drop falls away on the other. The thin air makes breathing harder here, but the view of the surrounding lands is breathtaking. Snow caps the highest peaks in the distance.',
         monster: {
             name: 'Dragon',
@@ -37,6 +37,13 @@ export const locations = {
         name: 'River',
         connections: ['swamp', 'forest', "mountain"],
         description: 'A wide, crystal-clear river flows swiftly through the landscape. Smooth rocks line the riverbed, visible through the pristine waters. The gentle sound of rushing water creates a peaceful atmosphere, while colorful fish dart beneath the surface. Lush vegetation grows along the banks, swaying in the cool breeze.',
+        monster: null,
+        picture: `./assets/images/river.jpg`
+    },
+    ancientMonolith: {
+        name: 'Ancient Monolith',
+        connections: ['mountain'],
+        description: 'A towering stone monolith stands alone on a windswept plateau. Its surface is covered in mysterious runes worn smooth by centuries of weather. The air here feels heavy with history and secrets.',
         monster: null,
         picture: null
     }
