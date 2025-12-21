@@ -1,4 +1,3 @@
-// scripts/ai-pr-review.js
 const fs = require('fs');
 const OpenAI = require('openai');
 
