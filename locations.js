@@ -11,7 +11,7 @@ export const locations = {
     },
     mountain: {
         name: 'Mountain',
-        connections: ['forest', 'underground', 'ancientMonolith'],
+        connections: ['forest', 'underground', 'ancientMonolith', 'fortress', 'river'],
         description: 'The rocky mountain path winds before you. Sharp cliffs rise on one side while a steep drop falls away on the other. The thin air makes breathing harder here, but the view of the surrounding lands is breathtaking. Snow caps the highest peaks in the distance.',
         monster: {
             name: 'Dragon',
@@ -44,6 +44,13 @@ export const locations = {
         name: 'Ancient Monolith',
         connections: ['mountain'],
         description: 'A towering stone monolith stands alone on a windswept plateau. Its surface is covered in mysterious runes worn smooth by centuries of weather. The air here feels heavy with history and secrets.',
+        monster: null,
+        picture: null
+    },
+    fortress: {
+        name: 'Fortress',
+        connections: ['mountain'],
+        description: 'A massive fortress looms atop a windswept cliff, its dark stone walls rising forbiddingly against the sky. Below, waves crash violently against the rocky shore, sending spray high into the air. The ancient structure exudes an atmosphere of dread and isolation, its empty battlements and barred gates suggesting secrets best left undisturbed.',
         monster: null,
         picture: null
     }
